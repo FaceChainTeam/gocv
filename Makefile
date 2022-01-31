@@ -61,6 +61,7 @@ build:
 		-D OPENCV_EXTRA_MODULES_PATH=$(TMP_DIR)opencv/opencv_contrib-$(OPENCV_VERSION)/modules \
 		-D BUILD_DOCS=OFF \
 		-D BUILD_EXAMPLES=OFF \
+		-D BUILD_opencv_world=OFF \
 		-D BUILD_TESTS=OFF \
 		-D BUILD_PERF_TESTS=OFF \
 		-D BUILD_opencv_java=NO \
@@ -117,6 +118,10 @@ sudo_install:
 	sudo $(MAKE) install
 	sudo ldconfig
 	cd -
+
+deps_debian:
+	sudo apt-get -y update
+	sudo apt-get -y install $(DEBS)
 
 #python3 ./modules/python/src2/gen2.py ./build/modules/python_bindings_generator ./build/modules/python_bindings_generator/headers.txt
 
