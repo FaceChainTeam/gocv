@@ -3,7 +3,7 @@ package contrib
 import (
 	"testing"
 
-	"gocv.io/x/gocv"
+	"github.com/FaceChainTeam/gocv"
 )
 
 func TestCNT(t *testing.T) {

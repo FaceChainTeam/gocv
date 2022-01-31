@@ -25,7 +25,7 @@ import (
 	_ "net/http/pprof"
 
 	"github.com/hybridgroup/mjpeg"
-	"gocv.io/x/gocv"
+	"github.com/FaceChainTeam/gocv"
 )
 
 var (

@@ -33,9 +33,9 @@ import (
 // For example, the results could look something like this:
 //
 //	1 @ 0x4146a0c 0x4146a57 0x4119666 0x40bb18f 0x405a841
-//	#	0x4146a0b	gocv.io/x/gocv.newMat+0x4b	/go/src/gocv.io/x/gocv/core.go:120
-//	#	0x4146a56	gocv.io/x/gocv.NewMat+0x26	/go/src/gocv.io/x/gocv/core.go:126
-//	#	0x4119665	gocv.io/x/gocv.TestMat+0x25	/go/src/gocv.io/x/gocv/core_test.go:29
+//	#	0x4146a0b	github.com/FaceChainTeam/gocv.newMat+0x4b	/go/src/github.com/FaceChainTeam/gocv/core.go:120
+//	#	0x4146a56	github.com/FaceChainTeam/gocv.NewMat+0x26	/go/src/github.com/FaceChainTeam/gocv/core.go:126
+//	#	0x4119665	github.com/FaceChainTeam/gocv.TestMat+0x25	/go/src/github.com/FaceChainTeam/gocv/core_test.go:29
 //	#	0x40bb18e	testing.tRunner+0xbe		/usr/local/Cellar/go/1.11/libexec/src/testing/testing.go:827
 //
 // Furthermore, if the program is a long running process or if gocv is being used on a
@@ -51,7 +51,7 @@ import (
 var MatProfile *pprof.Profile
 
 func init() {
-	profName := "gocv.io/x/gocv.Mat"
+	profName := "github.com/FaceChainTeam/gocv.Mat"
 	MatProfile = pprof.Lookup(profName)
 	if MatProfile == nil {
 		MatProfile = pprof.NewProfile(profName)
