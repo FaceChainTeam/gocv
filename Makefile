@@ -2,7 +2,7 @@
 .PHONY: deps download build clean
 
 # OpenCV version to use.
-OPENCV_VERSION?=4.3.0
+OPENCV_VERSION?=4.5.4
 
 # Jetson Nano
 ARCH_BIN=5.3
@@ -59,30 +59,22 @@ build:
 		-D CMAKE_INSTALL_PREFIX=/usr/local \
 		-D BUILD_SHARED_LIBS=${BUILD_SHARED_LIBS} \
 		-D OPENCV_EXTRA_MODULES_PATH=$(TMP_DIR)opencv/opencv_contrib-$(OPENCV_VERSION)/modules \
+		-D ENABLE_CXX11=ON \
 		-D BUILD_DOCS=OFF \
 		-D BUILD_EXAMPLES=OFF \
 		-D BUILD_opencv_world=OFF \
 		-D BUILD_TESTS=OFF \
 		-D BUILD_PERF_TESTS=OFF \
-		-D BUILD_opencv_java=NO \
-		-D BUILD_opencv_python=NO \
+		-D BUILD_opencv_java=OFF \
+		-D BUILD_opencv_python=OFF \
 		-D BUILD_opencv_python2=OFF \
-		-D BUILD_opencv_python3=NO \
-		-D BUILD_NEW_PYTHON_SUPPORT=ON \
-		-D PYTHON3_LIMITED_API=ON \
-		-D OPENCV_PYTHON3_INSTALL_PATH="/usr/local/lib/python3.6/dist-packages" \
-		-D PYTHON3_EXECUTABLE="/usr/bin/python3" \
-		-D PYTHON3_INCLUDE_DIR="/usr/include/python3.6m" \
-		-D PYTHON3_LIBRARY="/usr/lib/aarch64-linux-gnu/libpython3.6m.so" \
+		-D BUILD_opencv_python3=OFF \
 		-D INSTALL_CREATE_DISTRIB=ON \
 		-D WITH_JASPER=OFF \
 		-D OPENCV_GENERATE_PKGCONFIG=ON \
-		-D WITH_CUDA=ON \
+		-D WITH_CUDA=OFF \
 		-D CUDA_ARCH_BIN=${ARCH_BIN} \
-		-D CUDA_ARCH_PTX="" \
 		-D ENABLE_FAST_MATH=ON \
-		-D CUDA_FAST_MATH=ON \
-		-D WITH_CUBLAS=ON \
 		-D WITH_V4L=ON \
 		-D WITH_LIBV4L=OFF\
 		-D WITH_GSTREAMER=ON \
@@ -90,7 +82,7 @@ build:
 		-D WITH_QT=OFF \
 		-D WITH_EIGEN=OFF \
 		-D WITH_OPENGL=OFF \
-		-D BUILD_OPENCV_PYTHON3=ON \
+		-D BUILD_OPENCV_PYTHON3=OFF \
 		-D ENABLE_NEON=OFF \
 		-D CPACK_BINARY_DEB=ON \
 		-D OPENCV_SKIP_PYTHON_LOADER=ON \
